@@ -13,6 +13,7 @@
 <body>
 
     <div id="app">
+        <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand custom-brand" href="{{ url('/') }}">
@@ -22,7 +23,7 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('content') <!-- Content Section (to be filled in by child views) -->
         </main>
     </div>
 

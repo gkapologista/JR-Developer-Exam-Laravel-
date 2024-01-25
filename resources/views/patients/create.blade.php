@@ -1,11 +1,12 @@
 {{-- resources/views/patients/create.blade.php --}}
 
-@extends('layouts.app')
+@extends('layouts.app') <!-- Extend the layout 'app' -->
 
-@section('content')
+@section('content') <!-- Define the content section to be filled in by child views -->
     <div class="patient-container">
         <h1>Create / Add Patient</h1>
 
+        <!-- Display validation errors if any -->
         @if ($errors->any())
             <div class="status-error-list">
                 <ul>
@@ -15,9 +16,10 @@
                 </ul>
             </div>
         @endif
-        
+
+        <!-- Patient Creation Form -->
         <form method="POST" action="{{ route('patients.store') }}">
-            @csrf
+            @csrf <!-- CSRF protection -->
             <div class="patient-form-group">
                 <label for="name" class="patient-label">Name:</label>
                 <input type="text" id="name" name="name" required class="patient-input">
@@ -54,4 +56,4 @@
             <button type="submit" class="patient-button">Save</button>
         </form>
     </div>
-@endsection
+@endsection <!-- End of content section -->

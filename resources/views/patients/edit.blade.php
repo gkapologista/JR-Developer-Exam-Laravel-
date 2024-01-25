@@ -1,14 +1,17 @@
 {{-- resources/views/patients/edit.blade.php --}}
 
-@extends('layouts.app')
+@extends('layouts.app') <!-- Extend the layout 'app' -->
 
-@section('content')
+@section('content') <!-- Define the content section to be filled in by child views -->
     <div class="patient-container">
         <h1>Update Patient Details</h1>
+
+        <!-- Form for updating patient details -->
         <form method="POST" action="{{ route('patients.update', $patient) }}">
-            @csrf
+            @csrf <!-- CSRF protection -->
             <div class="patient-form-group">
-                @method('PUT')
+                @method('PUT') <!-- Set the HTTP method to PUT for updating -->
+
                 <label for="name" class="patient-label">Name:</label>
                 <input type="text" id="name" name="name" value="{{ $patient->name }}" required class="patient-input">
 
@@ -44,4 +47,4 @@
             <button type="submit" class="patient-button">Save</button>
         </form>
     </div>
-@endsection
+@endsection <!-- End of content section -->
