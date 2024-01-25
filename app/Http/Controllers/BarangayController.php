@@ -8,34 +8,21 @@ use Illuminate\Http\Request;
 
 class BarangayController extends Controller
 {
-    /**
-     * Display a listing of all barangays.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // Display a list of barangays along with their associated city
     public function index()
     {
-        $barangays = Barangay::with('city')->get(); // Fetch all barangays with their associated city
+        $barangays = Barangay::with('city')->get();
         return view('barangays.index', compact('barangays'));
     }
 
-    /**
-     * Show the form for creating a new barangay.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // Show form for creating a new barangay with a list of cities
     public function create()
     {
-        $cities = City::all(); // Fetch all cities for the dropdown in the create form
+        $cities = City::all();
         return view('barangays.create', compact('cities'));
     }
 
-    /**
-     * Store a newly created barangay in the database.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // Store a new barangay in the database with unique name validation per city
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -43,40 +30,24 @@ class BarangayController extends Controller
             'city_id' => 'required|exists:cities,id'
         ]);
 
-        $barangay = Barangay::create($validatedData); // Create a new barangay with validated data
+        $barangay = Barangay::create($validatedData);
         return redirect()->route('barangays.show', $barangay)->with('success', 'Barangay created successfully.');
     }
 
-    /**
-     * Display the specified barangay.
-     *
-     * @param  \App\Models\Barangay  $barangay
-     * @return \Illuminate\Http\Response
-     */
+    // Display details of a specific barangay
     public function show(Barangay $barangay)
     {
-        return view('barangays.show', compact('barangay')); // Show details of a specific barangay
+        return view('barangays.show', compact('barangay'));
     }
 
-    /**
-     * Show the form for editing the specified barangay.
-     *
-     * @param  \App\Models\Barangay  $barangay
-     * @return \Illuminate\Http\Response
-     */
+    // Show form for editing a specific barangay with a list of cities
     public function edit(Barangay $barangay)
     {
-        $cities = City::all(); // Fetch all cities for the dropdown in the edit form
+        $cities = City::all();
         return view('barangays.edit', compact('barangay', 'cities'));
     }
 
-    /**
-     * Update the specified barangay in the database.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Barangay  $barangay
-     * @return \Illuminate\Http\Response
-     */
+    // Update a specific barangay in the database with unique name validation
     public function update(Request $request, Barangay $barangay)
     {
         $validatedData = $request->validate([
@@ -84,19 +55,14 @@ class BarangayController extends Controller
             'city_id' => 'required|exists:cities,id'
         ]);
 
-        $barangay->update($validatedData); // Update barangay with new data
+        $barangay->update($validatedData);
         return redirect()->route('barangays.index')->with('success', 'Barangay updated successfully.');
     }
 
-    /**
-     * Remove the specified barangay from the database.
-     *
-     * @param  \App\Models\Barangay  $barangay
-     * @return \Illuminate\Http\Response
-     */
+    // Remove a specific barangay from the database
     public function destroy(Barangay $barangay)
     {
-        $barangay->delete(); // Delete the barangay
+        $barangay->delete();
         return redirect()->route('barangays.index')->with('success', 'Barangay deleted successfully.');
     }
 }
