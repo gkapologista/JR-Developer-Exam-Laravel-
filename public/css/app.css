@@ -141,6 +141,10 @@ body {
     margin-bottom: 15px;
 }
 
+.barangay-form-group {
+    margin-top: 15px;
+}
+
 .barangay-form-group, .barangay-details {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -266,6 +270,7 @@ body {
 .city-form-group, .city-details {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    margin-top: 15px;
     margin-bottom: 15px;
     background-color: #fff;
     padding: 15px;
@@ -381,6 +386,10 @@ body {
 .patient-container h1 {
     color: #444;
     margin-bottom: 15px;
+}
+
+.patient-form-group {
+    margin-top: 15px;
 }
 
 .patient-form-group, .patient-details {
@@ -577,6 +586,10 @@ body {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.status-form {
+    margin-top: 15px;
 }
 
 .status-form-group {

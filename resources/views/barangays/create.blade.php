@@ -8,7 +8,7 @@
 
         <!-- Display validation errors -->
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="status-error-list">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

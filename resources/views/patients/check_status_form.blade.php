@@ -5,14 +5,6 @@
 @section('content')
     <div class="status-container">
         <h1>Check Patient Status</h1>
-        <form action="{{ route('patients.check_status') }}" method="POST" class="status-form">
-            @csrf
-            <div class="status-form-group">
-                <label for="number" class="status-label">Contact Number:</label>
-                <input type="text" id="number" name="number" required class="status-input">
-            </div>
-            <button type="submit" class="status-button">Check Status</button>
-        </form>
 
         @if ($errors->any())
             <div class="status-error-list">
@@ -23,5 +15,14 @@
                 </ul>
             </div>
         @endif
+
+        <form action="{{ route('patients.check_status') }}" method="POST" class="status-form">
+            @csrf
+            <div class="status-form-group">
+                <label for="number" class="status-label">Contact Number:</label>
+                <input type="text" id="number" name="number" required class="status-input">
+            </div>
+            <button type="submit" class="status-button">Check Status</button>
+        </form>
     </div>
 @endsection
