@@ -3,20 +3,28 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Edit Barangay</h1>
-    <form method="POST" action="{{ route('barangays.update', $barangay) }}">
-        @csrf
-        @method('PUT')
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ $barangay->name }}" required>
+    <div class="barangay-container"> <!-- UPDATE VIEW -->
+        <h1>Update Barangay</h1>
 
-        <label for="city_id">City:</label>
-        <select id="city_id" name="city_id">
-            @foreach ($cities as $city)
-                <option value="{{ $city->id }}" @if($city->id == $barangay->city_id) selected @endif>{{ $city->name }}</option>
-            @endforeach
-        </select>
+        <form method="POST" action="{{ route('barangays.update', $barangay) }}">
+            @csrf
+            @method('PUT')
 
-        <button type="submit">Update</button>
-    </form>
+            <div class="barangay-form-group">
+                <label for="name" class="barangay-label">Name:</label>
+                <input type="text" id="name" name="name" value="{{ $barangay->name }}" required class="barangay-input">
+            </div>
+
+            <div class="barangay-form-group">
+                <label for="city_id" class="barangay-label">City:</label>
+                <select id="city_id" name="city_id" class="barangay-select">
+                    @foreach ($cities as $city)
+                        <option value="{{ $city->id }}" @if($city->id == $barangay->city_id) selected @endif>{{ $city->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <button type="submit" class="barangay-button">Save</button>
+        </form>
+    </div>
 @endsection

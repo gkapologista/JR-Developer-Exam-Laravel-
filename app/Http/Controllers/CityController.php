@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barangay;
 use App\Models\City;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = City::all(); // Fetch all cities from the database
-        return view('cities.index', compact('cities')); // Pass cities data to the view
+        $cities = City::all();
+        return view('cities.index', compact('cities'));
     }
 
     /**
@@ -30,11 +31,13 @@ class CityController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:cities|max:255' // Validate the name
+            'name' => 'required|max:255|unique:cities,name'
         ]);
 
-        City::create($validatedData); // Create a new city in the database
-        return redirect()->route('cities.index')->with('success', 'City created successfully.');
+        $city = City::create($validatedData);
+
+        // Redirect to the 'show' route of the newly created city
+        return redirect()->route('cities.show', $city)->with('success', 'City created successfully.');
     }
 
     /**
@@ -42,7 +45,7 @@ class CityController extends Controller
      */
     public function show(City $city)
     {
-        return view('cities.show', compact('city')); // Return the view to show a specific city
+        return view('cities.show', compact('city'));
     }
 
     /**
@@ -59,10 +62,12 @@ class CityController extends Controller
     public function update(Request $request, City $city)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:cities,name,' . $city->id . '|max:255' // Validate the name
+            'name' => 'required|max:255|unique:cities,name,' . $city->id
         ]);
 
-        $city->update($validatedData); // Update the city in the database
+        $city->update($validatedData);
+
+        // Redirect to the 'index' route after update
         return redirect()->route('cities.index')->with('success', 'City updated successfully.');
     }
 

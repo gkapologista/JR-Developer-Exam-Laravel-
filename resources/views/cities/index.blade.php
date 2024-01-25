@@ -3,28 +3,30 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Cities List</h1>
-    <a href="{{ route('cities.create') }}">Add New City</a>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Actions</th>
-        </tr>
-        @foreach($cities as $city)
+    <div class="city-container">
+        <h1>Delete & View Cities</h1>
+        <table class="city-table">
             <tr>
-                <td>{{ $city->id }}</td>
-                <td>{{ $city->name }}</td>
-                <td>
-                    <a href="{{ route('cities.show', $city) }}">View</a>
-                    <a href="{{ route('cities.edit', $city) }}">Edit</a>
-                    <form action="{{ route('cities.destroy', $city) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
             </tr>
-        @endforeach
-    </table>
+            @foreach($cities as $city)
+                <tr>
+                    <td>{{ $city->id }}</td>
+                    <td>{{ $city->name }}</td>
+                    <td class="city-table-action">
+                        <a class="action-link" href="{{ route('cities.show', $city) }}">View</a>
+                        <a class="action-link" href="{{ route('cities.edit', $city) }}">Edit</a>
+                        <form action="{{ route('cities.destroy', $city) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="action-link" style="border: none; background: none; font-family: 'Roboto', sans-serif; font-size: 16px; cursor:pointer;">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+    
 @endsection

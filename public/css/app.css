@@ -1,0 +1,561 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Replace 'Roboto' with your chosen font */
+}
+
+.action-link {
+    color: #007bff;
+    text-decoration: none; 
+    padding: 2px 5px; 
+    margin: 0 2px; 
+    transition: color 0.3s;
+}
+
+.action-link:hover, .action-link:focus {
+    color: #0056b3; 
+    text-decoration: underline;
+}
+
+.action-link {
+    color: #007bff;
+    text-decoration: none;
+    padding: 2px 5px;
+    margin: 0 2px; 
+    transition: color 0.3s;
+}
+
+/* welcome.blade.php Styling */
+
+.welcome-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-header h1 {
+    font-size: 2.5em;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+.welcome-header p {
+    font-size: 1.2em;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.welcome-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.welcome-links a {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 18px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.welcome-links a:hover {
+    background-color: #0056b3;
+}
+
+/* End of welcome.blade.php Styling */
+
+/* app.blade.php Styling */
+
+.navbar-brand.custom-brand {
+    font-size: 48px;
+    text-decoration: none; 
+    color: #333; 
+    font-weight: bold; 
+    transition: color 0.3s; 
+}
+
+.navbar-brand.custom-brand:hover,
+.navbar-brand.custom-brand:focus {
+    color: #0056b3;
+    text-decoration: none; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.container h1 {
+    color: #333;
+    font-size: 2em;
+}
+
+.container p {
+    color: #666;
+    font-size: 1em;
+}
+
+.links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.links a {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.links a:hover {
+    background-color: #0056b3;
+}
+
+/* End of app.blade.php Styling */
+
+/* Barangays Styling */
+
+.barangay-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.barangay-container h1 {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.barangay-form-group, .barangay-details {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.barangay-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.barangay-input, .barangay-select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 0px 8px 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.barangay-action-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    margin-left: 250px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.barangay-button:hover, .barangay-add-link:hover, .barangay-action-link:hover {
+    background-color: #218838;
+}
+
+.barangay-action-link {
+    background-color: #28a745;
+}
+
+.barangay-action-link:hover {
+    background-color: #218838;
+}
+
+.barangay-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.barangay-table, .barangay-table th, .barangay-table td {
+    border: 1px solid #ddd;
+}
+
+.barangay-table th {
+    background-color: #e9ecef;
+    color: #333;
+    padding: 10px;
+}
+
+.barangay-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.barangay-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.barangay-table-action {
+    text-align: center;
+}
+
+.barangay-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.barangay-button:hover {
+    background-color: #218838;
+}
+
+/* End of Barangays Styling */
+
+/* Cities Styling */
+
+.city-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.city-container h1 {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.city-form-group, .city-details {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.city-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.city-input, .city-select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 0px 8px 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.city-action-link {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    margin-left: 250px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.city-button:hover, .city-add-link:hover, .city-action-link:hover {
+    background-color: #218838;
+}
+
+.city-action-link {
+    background-color: #28a745;
+}
+
+.city-action-link:hover {
+    background-color: #218838;
+}
+
+.city-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.city-table, .city-table th, .city-table td {
+    border: 1px solid #ddd;
+}
+
+.city-table th {
+    background-color: #e9ecef;
+    color: #333;
+    padding: 10px;
+}
+
+.city-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.city-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.city-table-action {
+    text-align: center;
+}
+
+.city-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.city-button:hover {
+    background-color: #218838;
+}
+
+/* End of Cities Styling */
+
+/* Patients Styling */
+
+.patient-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.patient-container h1 {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.patient-form-group, .patient-details {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.patient-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.patient-input, .patient-select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 0px 8px 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.patient-action-link {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    margin-left: 250px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.patient-button:hover, .patient-add-link:hover, .patient-action-link:hover {
+    background-color: #218838;
+}
+
+.patient-action-link {
+    background-color: #28a745;
+}
+
+.patient-action-link:hover {
+    background-color: #218838;
+}
+
+.patient-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.patient-table, .patient-table th, .patient-table td {
+    border: 1px solid #ddd;
+}
+
+.patient-table th {
+    background-color: #e9ecef;
+    color: #333;
+    padding: 10px;
+}
+
+.patient-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.patient-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.patient-table-action {
+    text-align: center;
+}
+
+.patient-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    display: block; 
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.patient-button:hover {
+    background-color: #218838;
+}
+
+/* End of Patients Styling */
+
+
+/* Reports Styling */
+
+.report-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-title, .report-results-title {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.report-form-group {
+    margin-bottom: 15px;
+}
+
+.report-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.report-select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.report-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.report-button:hover {
+    background-color: #218838;
+}
+
+.city-report, .barangay-report {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.city-name, .barangay-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* End of Reports Styling */
+
+/* Styles for Barangay-City-Patient */
+
+
+
+/* End of Styles for Barangay-City-Patient */
+

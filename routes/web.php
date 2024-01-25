@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\BarangayController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ReportsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,6 @@ Route::get('/', function () {
 Route::resource('cities', CityController::class);
 Route::resource('barangays', BarangayController::class);
 Route::resource('patients', PatientController::class);
-Route::get('/reports/patients-by-city', [ReportsController::class, 'patientsByCity'])->name('reports.patients_by_city');
+Route::get('/cities/{city}/barangays', [ReportsController::class, 'getBarangays']);
+Route::get('/reports/awareness', [ReportsController::class, 'awarenessReport'])->name('reports.awareness');
+Route::get('/reports/coronavirus', [ReportsController::class, 'coronavirusReport'])->name('reports.coronavirus');

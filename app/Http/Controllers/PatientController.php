@@ -23,16 +23,16 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'brgy_id' => 'required|exists:barangays,id', // Ensure the barangay exists
+            'name' => 'required|max:255|unique:patients,name,NULL,id,brgy_id,' . $request->brgy_id . ',number,' . $request->number,
+            'brgy_id' => 'required|exists:barangays,id',
             'number' => 'required|max:255',
-            'email' => 'nullable|email|max:255',
+            'email' => 'nullable|email|max:255|unique:patients,email',
             'case_type' => 'required|max:255',
             'coronavirus_status' => 'required|max:255'
         ]);
 
-        Patient::create($validatedData);
-        return redirect()->route('patients.index')->with('success', 'Patient created successfully.');
+        $patient = Patient::create($validatedData);
+        return redirect()->route('patients.show', $patient)->with('success', 'Patient created successfully.');
     }
 
     public function show(Patient $patient)
@@ -49,10 +49,10 @@ class PatientController extends Controller
     public function update(Request $request, Patient $patient)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:patients,name,' . $patient->id . ',id,brgy_id,' . $request->brgy_id . ',number,' . $request->number,
             'brgy_id' => 'required|exists:barangays,id',
             'number' => 'required|max:255',
-            'email' => 'nullable|email|max:255',
+            'email' => 'nullable|email|max:255|unique:patients,email,' . $patient->id,
             'case_type' => 'required|max:255',
             'coronavirus_status' => 'required|max:255'
         ]);

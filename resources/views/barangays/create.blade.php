@@ -3,19 +3,37 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Barangay</h1>
-    <form method="POST" action="{{ route('barangays.store') }}">
-        @csrf
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="barangay-container"> <!-- CREATE VIEW -->
+        <h1>Create Barangay</h1>
 
-        <label for="city_id">City:</label>
-        <select id="city_id" name="city_id">
-            @foreach ($cities as $city)
-                <option value="{{ $city->id }}">{{ $city->name }}</option>
-            @endforeach
-        </select>
+        <!-- Display validation errors -->
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
+        <form method="POST" action="{{ route('barangays.store') }}">
+            @csrf
+            <div class="barangay-form-group">
+                <label for="name" class="barangay-label">Name:</label>
+                <input type="text" id="name" name="name" required class="barangay-input">
+            </div>
 
-        <button type="submit">Submit</button>
-    </form>
+            <div class="barangay-form-group">
+                <label for="city_id" class="barangay-label">City:</label>
+                <select id="city_id" name="city_id" class="barangay-select">
+                    @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <button type="submit" class="barangay-button">Save</button>
+        </form>
+    </div>
 @endsection

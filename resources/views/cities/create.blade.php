@@ -3,12 +3,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create City</h1>
-    <form method="POST" action="{{ route('cities.store') }}">
-        @csrf
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="city-container">
+        <h1>Create / Add City</h1>
 
-        <button type="submit">Submit</button>
-    </form>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
+        <form method="POST" action="{{ route('cities.store') }}">
+            @csrf
+            <div class="city-form-group">
+                <label for="name" class="city-label">Name:</label>
+                <input type="text" id="name" name="name" required class="city-input">
+            </div>
+            
+            <button type="submit" class="city-button">Save</button>
+        </form>
+    </div>
 @endsection

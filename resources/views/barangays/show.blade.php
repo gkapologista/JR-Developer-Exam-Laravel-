@@ -3,11 +3,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Barangay Details</h1>
-    <p>ID: {{ $barangay->id }}</p>
-    <p>Name: {{ $barangay->name }}</p>
-    <p>City: {{ $barangay->city->name }}</p>
-
-    <a href="{{ route('barangays.index') }}">Back to List</a>
-    <a href="{{ route('barangays.edit', $barangay) }}">Edit Barangay</a>
+    <div class="barangay-container"> <!-- READ VIEW -->
+        <h1>Read Barangay Details</h1>
+        <div class="barangay-details">
+            <p>ID: {{ $barangay->id }}</p>
+            <p>Name: {{ $barangay->name }}</p>
+            <p>City: {{ $barangay->city->name }}</p>
+        </div>
+        
+        <a href="{{ route('barangays.edit', $barangay) }}" class="barangay-action-link">Save</a>
+    </div>
 @endsection
