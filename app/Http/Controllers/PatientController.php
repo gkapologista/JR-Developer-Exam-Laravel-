@@ -66,4 +66,32 @@ class PatientController extends Controller
         $patient->delete();
         return redirect()->route('patients.index')->with('success', 'Patient deleted successfully.');
     }
+
+    public function checkStatusForm()
+    {
+        // Simply return the view for the form
+        return view('patients.check_status_form');
+    }
+
+    public function checkStatus(Request $request)
+    {
+        // Validate the request
+        $validatedData = $request->validate([
+            'number' => 'required|max:255', // Assuming 'number' is the field for contact number
+        ]);
+
+        // Find the patient using the provided contact number
+        $patient = Patient::where('number', $validatedData['number'])->first();
+
+        if (!$patient) {
+            return redirect()->back()->withErrors(['number' => 'Patient with this contact number does not exist.']);
+        }
+
+        // Check if patient is found and return appropriate view
+        if ($patient) {
+            return view('patients.show_status', ['patient' => $patient]); // Assuming 'patients.status' is your view for showing patient status
+        } else {
+            return back()->with('error', 'No patient found with that contact number.');
+        }
+    }
 }

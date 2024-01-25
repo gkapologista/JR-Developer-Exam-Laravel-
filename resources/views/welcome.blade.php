@@ -12,6 +12,7 @@
             <a href="{{ route('patients.create') }}">Patients Management</a>
             <a href="{{ route('reports.awareness') }}">Awareness Report</a>
             <a href="{{ route('reports.coronavirus') }}">Coronavirus Report</a>
+            <a href="{{ route('patients.check_status_form') }}">Patient Check Status</a>
         </div>
     </div>
 @endsection
